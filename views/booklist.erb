@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Reading record</title>
+  </head>
+  <body> 
+
+<body bgcolor="#ffcccc">
+</div>
+    <a href="/"><span style="font-style: italic"><center><h1>Reading record</h1></center></span></a>
+</div>
+    <font color="#660000"><h2>書籍情報</h2></font>
+    <form action="/" method="POST">
+      <p>
+      <font color="#660000">書籍名：</font> <input type="text" name="book_title" placeholder="書籍タイトルを入力" required>
+      </p>
+      <p>
+       <font color="#660000">開始：</font><select name="start_day_month">
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+            <option value=7>7</option>
+            <option value=8>8</option>
+            <option value=9>9</option>
+            <option value=10>10</option>
+            <option value=11>11</option>
+            <option value=12>12</option>
+            </select>
+            <font color="#660000">月</font>
+            <select name="start_day_days">
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+            <option value=7>7</option>
+            <option value=8>8</option>
+            <option value=9>9</option>
+            <option value=10>10</option>
+            <option value=11>11</option>
+            <option value=12>12</option>
+            <option value=13>13</option>
+            <option value=14>14</option>
+            <option value=15>15</option>
+            <option value=16>16</option>
+            <option value=17>17</option>
+            <option value=18>18</option>
+            <option value=19>19</option>
+            <option value=20>20</option>
+            <option value=21>21</option>
+            <option value=22>22</option>
+            <option value=23>23</option>
+            <option value=24>24</option>
+            <option value=25>25</option>
+            <option value=26>26</option>
+            <option value=27>27</option>
+            <option value=28>28</option>
+            <option value=29>29</option>
+            <option value=30>30</option>
+            <option value=31>31</option>
+            </select>
+             <font color="#660000">日</font>
+      </p>
+      
+      <p>
+     <font color="#660000"> 終了：</font><select name="end_day_month">
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+            <option value=7>7</option>
+            <option value=8>8</option>
+            <option value=9>9</option>
+            <option value=10>10</option>
+            <option value=11>11</option>
+            <option value=12>12</option>
+            </select>
+            <font color="#660000">月
+            <select name="end_day_days">
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+            <option value=7>7</option>
+            <option value=8>8</option>
+            <option value=9>9</option>
+            <option value=10>10</option>
+            <option value=11>11</option>
+            <option value=12>12</option>
+            <option value=13>13</option>
+            <option value=14>14</option>
+            <option value=15>15</option>
+            <option value=16>16</option>
+            <option value=17>17</option>
+            <option value=18>18</option>
+            <option value=19>19</option>
+            <option value=20>20</option>
+            <option value=21>21</option>
+            <option value=22>22</option>
+            <option value=23>23</option>
+            <option value=24>24</option>
+            <option value=25>25</option>
+            <option value=26>26</option>
+            <option value=27>27</option>
+            <option value=28>28</option>
+            <option value=29>29</option>
+            <option value=30>30</option>
+            <option value=31>31</option>
+            </select>
+            日</font>
+            
+      </p>
+      <input type="text" name="memo" placeholder="感想" required>
+      <input type="submit" name="submit_add_book" value="登録">
+    </form>
+    <font color="#660000"><h2>これまで読んだ本リスト</h2></font>
+    <ul> 
+      <% @records.each do |record| %>
+        <font color="#660000"><li>『<%= ERB::Util.html_escape(record['book_title']) %> 』   期間：<%= ERB::Util.html_escape(record['start_day_month']) %>/<%= ERB::Util.html_escape(record['start_day_days']) %>〜<%= ERB::Util.html_escape(record['end_day_month']) %>/<%= ERB::Util.html_escape(record['end_day_days']) %>  　 感想「<%= ERB::Util.html_escape(record['memo']) %>」</li></font>
+        
+      <% end %>
+    </ul>
+  </body>
+</html>
